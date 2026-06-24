@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>How To Implement ChatGPT in Django</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f4f4;
+            margin:0;
+        }
+
+        .container{
+            width:700px;
+            margin:40px auto;
+            background:white;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,.2);
+            padding:20px;
+        }
+
+        h1{
+            text-align:center;
+            color:#10a37f;
+        }
+
+        #chat-box{
+            height:350px;
+            border:1px solid #ddd;
+            padding:15px;
+            overflow-y:auto;
+            background:#fafafa;
+            margin-bottom:15px;
+        }
+
+        input{
+            width:80%;
+            padding:12px;
+            font-size:16px;
+        }
+
+        button{
+            width:18%;
+            padding:12px;
+            background:#10a37f;
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#0d8c6c;
+        }
+
+        .user{
+            color:blue;
+            margin:10px 0;
+        }
+
+        .bot{
+            color:green;
+            margin:10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>How To Implement ChatGPT in Django</h1>
+
+<div id="chat-box"></div>
+
+<input type="text" id="message" placeholder="Ask something...">
+
+<button onclick="reply()">Send</button>
+
+</div>
+
+<script>
+
+function reply(){
+
+let message=document.getElementById("message").value;
+
+let box=document.getElementById("chat-box");
+
+box.innerHTML += "<div class='user'><b>You:</b> "+message+"</div>";
+
+let answer="Sorry, I don't understand.";
+
+message=message.toLowerCase();
+
+if(message=="hello")
+answer="Hello! Welcome to my Django Chatbot.";
+
+else if(message=="how are you")
+answer="I'm doing great. Thanks for asking.";
+
+else if(message=="what is django")
+answer="Django is a Python web framework.";
+
+else if(message=="what is python")
+answer="Python is a powerful programming language.";
+
+else if(message=="bye")
+answer="Goodbye! Have a nice day.";
+
+box.innerHTML += "<div class='bot'><b>Bot:</b> "+answer+"</div>";
+
+document.getElementById("message").value="";
+
+}
+
+</script>
+
+</body>
+</html>
